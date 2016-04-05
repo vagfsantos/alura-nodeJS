@@ -45,3 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/casadocodigo/node_modules
+/teste-aula01/node_modules
+/alura/casadocodigo/node_modules
