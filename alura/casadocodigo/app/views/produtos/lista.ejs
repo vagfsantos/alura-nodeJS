@@ -3,24 +3,19 @@
 		<table border="1">
 			<tr>
 				<td>ID</td>
-				<td>NOME</td>
+				<td>TÍTULO</td>
+				<td>DESCRIÇÃO</td>
+				<td>PREÇO</td>
 			</tr>
-
-			<tr>
-				<td>1</td>
-				<td>Livro de nodeJs</td>
-			</tr>
-
-			<tr>
-				<td>2</td>
-				<td>Livro de nodeJs 2</td>
-			</tr>
-
-			<tr>
-				<td>3</td>
-				<td>Livro de nodeJs 3</td>
-			</tr>
-
+		
+			<% for(var i = 0; i < lista.length; i++){%>
+				<tr>
+					<td><%= lista[i].id %></td>
+					<td><%= lista[i].titulo %></td>
+					<td><%= lista[i].descricao %></td>
+					<td><%= lista[i].preco %></td>
+				</tr>
+			<% } %>
 		</table>
 	</body>
 </html>
