@@ -3,7 +3,8 @@ module.exports = function(app){
 		var mysql = require('mysql');
 		var connection = app.infra.connectionFactory();
 		
-		connection.query('select * from livros', function(error, results){
+		var produtosBanco = app.infra.produtosBanco;
+		produtosBanco.lista(connection, function(error, results){
 			console.log(error);
 			res.render('produtos/lista', {'lista':results});
 		});
