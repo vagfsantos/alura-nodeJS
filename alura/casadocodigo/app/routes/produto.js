@@ -3,8 +3,8 @@ module.exports = function(app){
 		var mysql = require('mysql');
 		var connection = app.infra.connectionFactory();
 		
-		var produtosBanco = app.infra.produtosBanco;
-		produtosBanco.lista(connection, function(error, results){
+		var produtosBanco = new app.infra.ProdutosDAO(connection);
+		produtosBanco.lista(function(error, results){
 			console.log(error);
 			res.render('produtos/lista', {'lista':results});
 		});
