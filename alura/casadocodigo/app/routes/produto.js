@@ -19,7 +19,7 @@ module.exports = function(app){
 	});
 
 	app.get('/produtos/form', function(req, res){
-		res.render('produtos/form', {errosValidacao:false});
+		res.render('produtos/form', {errosValidacao:{}, produto:{}});
 	});
 
 	app.post('/produtos', function(req, res){
@@ -31,7 +31,14 @@ module.exports = function(app){
 
 		var errors = req.validationErrors();
 		if(errors){
-			res.render('produtos/form', {errosValidacao:errors});
+			res.format({
+				html: function(){
+					res.status(400).render('produtos/form', {errosValidacao:errors, produto:produto});
+				},
+				json: function(){
+					res.status(400).json(errors);
+				}
+			});
 			return;	
 		}
 

@@ -24,17 +24,17 @@
 	<form action="/produtos" method="post">
 		<div>
 			<label for="titulo">Título</label>
-			<input id="titulo" type="text" name="titulo" placeholder="Coloque o título do livro aqui" />
+			<input id="titulo" type="text" name="titulo" placeholder="Coloque o título do livro aqui" value="<%=produto.titulo%>"/>
 		</div>
 
 		<div>
 			<label for="preco">Preço</label>
-			<input id="preco" type="number" name="preco" placeholder="Coloque o preco do livro aqui 150.50" />
+			<input id="preco" type="text" name="preco" placeholder="Coloque o preco do livro aqui 150.50" value="<%=produto.preco%>"/>
 		</div>
 
 		<div>
 			<label for="descricao">Descrição</label>
-			<textarea id="descricao" cols="30" rows="10" name="descricao" placeholder="Coloque a descricao do livro aqui"></textarea>
+			<textarea id="descricao" cols="30" rows="10" name="descricao" placeholder="Coloque a descricao do livro aqui"><%=produto.descricao%></textarea>
 		</div>
 
 		<div>
