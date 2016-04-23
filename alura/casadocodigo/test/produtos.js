@@ -3,11 +3,22 @@ var request = require('supertest')(express);
 
 describe('#Produtos Controller', function(){
 
+	beforeEach(function(done){
+		var conn = express.infra.connectionFactory();
+		conn.query("delete from livros", function(error, result){
+			if(!error){
+				done();
+			} else{
+				console.log(error);
+			}
+		});
+	});
+
 	it('#listagem JSON', function(done){
 		request.get('/produtos')
 		.set('Accept', 'application/json')
-		.expect('Content-Type', /json/)
-		.expect(200, done);
+		.expect(200)
+		.expect('Content-Type', /json/, done);
 	});
 
 
